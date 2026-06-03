@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.qlqa.data.utils.DataSeeder;
 import com.example.qlqa.databinding.ActivityLoginBinding;
 import com.example.qlqa.ui.DashboardActivity;
 import com.example.qlqa.utils.SessionManager;
@@ -23,6 +24,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Seed sample data if database is empty
+        DataSeeder.seedData(this);
 
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         sessionManager = new SessionManager(this);
@@ -64,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
         viewModel.getLoginSuccess().observe(this, account -> {
             if (account != null) {
-                sessionManager.createLoginSession(account.getUsername());
+                sessionManager.createLoginSession(account.getUsername(), account.getRole());
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, DashboardActivity.class));
                 finish();

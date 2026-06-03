@@ -27,20 +27,24 @@ public class MenuItem {
     
     private double price;
     private String imageUrl;
+    private String description;
     private double discount; // Mặc định 0
-    
+    private boolean isBestSeller;
+
     @NonNull
-    private String status; // Đang bán / Tạm ngừng
+    private String status; // Còn hàng / Hết hàng
     
     @NonNull
     private String createdAt;
 
-    public MenuItem(int categoryId, @NonNull String itemName, double price, String imageUrl, double discount, @NonNull String status, @NonNull String createdAt) {
+    public MenuItem(int categoryId, @NonNull String itemName, double price, String imageUrl, String description, double discount, boolean isBestSeller, @NonNull String status, @NonNull String createdAt) {
         this.categoryId = categoryId;
         this.itemName = itemName;
         this.price = price;
         this.imageUrl = imageUrl;
+        this.description = description;
         this.discount = discount;
+        this.isBestSeller = isBestSeller;
         this.status = status;
         this.createdAt = createdAt;
     }
@@ -61,8 +65,14 @@ public class MenuItem {
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
     public double getDiscount() { return discount; }
     public void setDiscount(double discount) { this.discount = discount; }
+
+    public boolean isBestSeller() { return isBestSeller; }
+    public void setBestSeller(boolean bestSeller) { isBestSeller = bestSeller; }
 
     @NonNull
     public String getStatus() { return status; }

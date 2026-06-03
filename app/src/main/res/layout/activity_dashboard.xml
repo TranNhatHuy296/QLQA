@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@android:drawable/ic_menu_gallery" />
+                        android:src="@android:drawable/ic_menu_myplaces" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
@@ -90,8 +90,9 @@
                     android:layout_gravity="top|end"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/circle_green"
-                    android:backgroundTint="#964900" />
+                    android:background="@android:drawable/presence_online"
+                    android:backgroundTint="#964900"
+                    android:visibility="gone" />
             </FrameLayout>
 
             <View
@@ -122,7 +123,6 @@
                     android:columnCount="2"
                     android:rowCount="2">
 
-                    <!-- Revenue Card -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="128dp"
@@ -133,13 +133,11 @@
                         app:cardElevation="0dp"
                         app:strokeColor="#C4C6CF"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -147,7 +145,6 @@
                                 android:textColor="#43474E"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
-
                             <TextView
                                 android:id="@+id/tvRevenueValue"
                                 android:layout_width="match_parent"
@@ -160,7 +157,6 @@
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Orders Card -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="128dp"
@@ -171,13 +167,11 @@
                         app:cardElevation="0dp"
                         app:strokeColor="#C4C6CF"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -185,7 +179,6 @@
                                 android:textColor="#43474E"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
-
                             <TextView
                                 android:id="@+id/tvOrdersValue"
                                 android:layout_width="match_parent"
@@ -198,7 +191,6 @@
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Tables Card -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="128dp"
@@ -209,13 +201,11 @@
                         app:cardElevation="0dp"
                         app:strokeColor="#C4C6CF"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -223,7 +213,6 @@
                                 android:textColor="#43474E"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
-
                             <TextView
                                 android:id="@+id/tvTablesValue"
                                 android:layout_width="match_parent"
@@ -236,7 +225,6 @@
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- Best Seller Card -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="128dp"
@@ -247,13 +235,11 @@
                         app:cardElevation="0dp"
                         app:strokeColor="#C4C6CF"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -261,7 +247,6 @@
                                 android:textColor="#43474E"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
-
                             <TextView
                                 android:id="@+id/tvBestSellerName"
                                 android:layout_width="match_parent"
@@ -274,45 +259,6 @@
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </GridLayout>
-
-                <!-- Quick Action Buttons -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnOrderHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="32dp"
-                    android:backgroundTint="#000613"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:text="Xem lịch sử đơn hàng"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    app:cornerRadius="8dp"
-                    app:icon="@android:drawable/ic_menu_recent_history"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp"
-                    app:iconTint="#FFFFFF" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnExportReport"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="16dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:text="Xuất báo cáo tài chính"
-                    android:textAllCaps="false"
-                    android:textColor="#000613"
-                    android:textSize="16sp"
-                    app:cornerRadius="8dp"
-                    app:icon="@android:drawable/ic_menu_save"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp"
-                    app:iconTint="#000613"
-                    app:strokeColor="#74777F" />
-
             </LinearLayout>
         </ScrollView>
 
@@ -324,26 +270,20 @@
             android:background="#FAF9FC"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingHorizontal="12dp"
             app:layout_constraintBottom_toBottomOf="parent">
-
             <LinearLayout
                 android:id="@+id/navHome"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_weight="1"
                 android:background="#FF851B"
-                android:backgroundTint="#FF851B"
                 android:gravity="center"
-                android:orientation="horizontal"
                 android:padding="8dp">
-
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="18dp"
                     android:src="@android:drawable/ic_menu_today"
                     app:tint="#612D00" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -353,7 +293,6 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/navMenu"
                 android:layout_width="0dp"
@@ -361,13 +300,11 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@android:drawable/ic_menu_view"
                     app:tint="#43474E" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -376,7 +313,6 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/navManage"
                 android:layout_width="0dp"
@@ -384,13 +320,11 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@android:drawable/ic_menu_manage"
                     app:tint="#43474E" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -399,7 +333,6 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/navReport"
                 android:layout_width="0dp"
@@ -407,13 +340,11 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@android:drawable/ic_menu_report_image"
                     app:tint="#43474E" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -422,14 +353,7 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#C4C6CF"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
 
         <!-- Notification Popup -->
         <com.google.android.material.card.MaterialCardView
@@ -441,44 +365,33 @@
             android:visibility="gone"
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="25dp"
+            app:cardElevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="#C4C6CF"
             app:strokeWidth="1dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="33dp"
                     android:background="#FAF9FC"
-                    android:padding="12dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thông Báo Mới Nhận"
-                        android:textColor="#43474E"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.05" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#C4C6CF" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="325dp"
-                    android:background="#F4F3F6">
-
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:text="Thông Báo Mới Nhận"
+                    android:textColor="#43474E"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#C4C6CF" />
+                <FrameLayout android:layout_width="match_parent" android:layout_height="325dp" android:background="#F4F3F6">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvNotificationPopup"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        tools:listitem="@layout/item_notification" />
                     <TextView
                         android:id="@+id/tvEmptyNotification"
                         android:layout_width="wrap_content"
@@ -486,147 +399,110 @@
                         android:layout_gravity="center"
                         android:text="Chưa có thông báo"
                         android:textColor="#43474E"
-                        android:textSize="14sp" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvNotifications"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:textSize="14sp"
                         android:visibility="gone" />
                 </FrameLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#C4C6CF" />
-
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#C4C6CF" />
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnViewAllNotifications"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="41dp"
                     android:text="Xem tất cả"
                     android:textColor="#000613"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textAllCaps="false"
-                    android:paddingVertical="8dp" />
+                    android:textAllCaps="false" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Refined Sidebar -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    <!-- Custom Sidebar -->
+    <LinearLayout
+        android:id="@+id/sidebar_container"
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#FAF9FC"
-        app:headerLayout="@layout/nav_header"
-        app:itemIconTint="#43474E"
-        app:itemTextColor="#43474E"
-        app:itemShapeFillColor="#FFDCC7"
-        app:itemShapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent">
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include layout="@layout/nav_header" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="110dp"> <!-- Space for header -->
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:fillViewport="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/logoutSection">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="8dp"
-                    android:paddingTop="8dp">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnNavHome"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:text="Trang chủ"
-                        android:textColor="#311300"
-                        android:backgroundTint="#FFDCC7"
-                        android:gravity="start|center_vertical"
-                        android:paddingStart="16dp"
-                        android:textAllCaps="false"
-                        app:icon="@android:drawable/ic_menu_today"
-                        app:iconTint="#311300"
-                        app:cornerRadius="12dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnNavProfile"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="4dp"
-                        android:text="Thông tin cá nhân"
-                        android:textColor="#43474E"
-                        android:gravity="start|center_vertical"
-                        android:paddingStart="16dp"
-                        android:textAllCaps="false"
-                        app:icon="@android:drawable/ic_menu_myplaces"
-                        app:iconTint="#43474E"
-                        app:cornerRadius="12dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnNavSettings"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="4dp"
-                        android:text="Cài đặt"
-                        android:textColor="#43474E"
-                        android:gravity="start|center_vertical"
-                        android:paddingStart="16dp"
-                        android:textAllCaps="false"
-                        app:icon="@android:drawable/ic_menu_manage"
-                        app:iconTint="#43474E"
-                        app:cornerRadius="12dp" />
-
-                </LinearLayout>
-            </ScrollView>
-
+            android:layout_height="0dp"
+            android:layout_weight="1">
             <LinearLayout
-                android:id="@+id/logoutSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="#C4C6CF" />
+                android:padding="8dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnNavLogout"
+                    android:id="@+id/btnNavHome"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:text="Đăng xuất"
-                    android:textColor="#BA1A1A"
+                    android:backgroundTint="#FFDCC7"
+                    android:text="Trang chủ"
+                    android:textColor="#311300"
                     android:gravity="start|center_vertical"
                     android:paddingStart="16dp"
                     android:textAllCaps="false"
-                    app:icon="@android:drawable/ic_lock_power_off"
-                    app:iconTint="#BA1A1A"
+                    app:icon="@android:drawable/ic_menu_today"
+                    app:iconTint="#311300"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNavProfile"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Thông tin cá nhân"
+                    android:textColor="#43474E"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="16dp"
+                    android:textAllCaps="false"
+                    app:icon="@android:drawable/ic_menu_myplaces"
+                    app:iconTint="#43474E"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNavSettings"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Đổi mật khẩu"
+                    android:textColor="#43474E"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="16dp"
+                    android:textAllCaps="false"
+                    app:icon="@android:drawable/ic_lock_idle_lock"
+                    app:iconTint="#43474E"
                     app:cornerRadius="12dp" />
             </LinearLayout>
+        </ScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#C4C6CF" android:layout_marginHorizontal="8dp"/>
 
-    </com.google.android.material.navigation.NavigationView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNavLogout"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:text="Đăng xuất"
+            android:textColor="#BA1A1A"
+            android:gravity="start|center_vertical"
+            android:paddingStart="16dp"
+            android:textAllCaps="false"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconTint="#BA1A1A" />
+    </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
