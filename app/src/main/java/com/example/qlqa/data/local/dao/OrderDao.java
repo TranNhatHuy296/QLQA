@@ -44,6 +44,13 @@ public interface OrderDao {
     @Query("SELECT * FROM orders WHERE orderId = :id")
     Order getOrderById(int id);
 
+    @Transaction
+    @Query("SELECT * FROM orders WHERE tableId = :tableId AND status = 'Đang phục vụ' LIMIT 1")
+    OrderWithDetails getActiveOrderWithDetailsByTable(int tableId);
+
+    @Query("SELECT * FROM orders WHERE tableId = :tableId AND status = 'Đang phục vụ' LIMIT 1")
+    Order getActiveOrderByTable(int tableId);
+
     // Revenue Report Queries
     @Query("SELECT SUM(totalAmount) FROM orders WHERE status = 'Đã thanh toán' AND createdAt BETWEEN :startDate AND :endDate")
     Double getTotalRevenue(String startDate, String endDate);

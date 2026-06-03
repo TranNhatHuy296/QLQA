@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.qlqa.data.local.AppDatabase;
 import com.example.qlqa.data.local.entities.Notification;
 import com.example.qlqa.data.local.entities.Order;
+import com.example.qlqa.data.local.entities.Table;
 import com.example.qlqa.data.local.model.OrderWithDetails;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +30,7 @@ public class DashboardViewModel extends AndroidViewModel {
     private final MutableLiveData<String> bestSeller = new MutableLiveData<>("---");
     private final MutableLiveData<List<Notification>> notifications = new MutableLiveData<>();
     private final MutableLiveData<Boolean> hasUnreadNotifications = new MutableLiveData<>(false);
+    private final MutableLiveData<List<Table>> tables = new MutableLiveData<>();
 
     public DashboardViewModel(@NonNull Application application) {
         super(application);
@@ -42,6 +44,7 @@ public class DashboardViewModel extends AndroidViewModel {
     public LiveData<String> getBestSeller() { return bestSeller; }
     public LiveData<List<Notification>> getNotifications() { return notifications; }
     public LiveData<Boolean> getHasUnreadNotifications() { return hasUnreadNotifications; }
+    public LiveData<List<Table>> getTables() { return tables; }
 
     public void loadDashboardData() {
         executorService.execute(() -> {
@@ -65,9 +68,10 @@ public class DashboardViewModel extends AndroidViewModel {
             revenue.postValue(rev != null ? String.format(Locale.getDefault(), "%,.0f₫", rev) : "0₫");
             ordersCount.postValue(orders != null ? String.valueOf(orders) : "0");
 
-            // 2. Active Tables
-            int tables = db.tableDao().getOccupiedTablesCount();
-            activeTables.postValue(String.valueOf(tables));
+            // 2. Active Tables Count
+            int activeCount = db.tableDao().getOccupiedTablesCount();
+            int totalCount = db.tableDao().getTotalTablesCount();
+            activeTables.postValue(String.format(Locale.getDefault(), "%02d / %02d", activeCount, totalCount));
 
             // 3. Notifications (Top 5)
             List<Notification> allNotifs = db.notificationDao().getAllNotifications();
@@ -80,9 +84,15 @@ public class DashboardViewModel extends AndroidViewModel {
             List<Notification> unread = db.notificationDao().getUnreadNotifications();
             hasUnreadNotifications.postValue(!unread.isEmpty());
 
-            // 4. Best Seller (Mocking for now as DAO doesn't have it, or simple logic)
-            // Just picking one from menu items if no real data
+            // 4. Best Seller
             bestSeller.postValue("Cà phê sữa");
+        });
+    }
+
+    public void loadTablesByArea(String area) {
+        executorService.execute(() -> {
+            List<Table> list = db.tableDao().getTablesByArea(area);
+            tables.postValue(list);
         });
     }
 }

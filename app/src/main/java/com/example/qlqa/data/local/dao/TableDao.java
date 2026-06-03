@@ -30,6 +30,12 @@ public interface TableDao {
     @Query("SELECT * FROM tables WHERE area = :area ORDER BY tableName ASC")
     List<Table> getTablesByArea(String area);
 
+    @Query("SELECT * FROM tables WHERE status = 'Có khách' ORDER BY tableName ASC")
+    List<Table> getOccupiedTables();
+
+    @Query("SELECT * FROM tables WHERE status = 'Có khách' AND area = :area ORDER BY tableName ASC")
+    List<Table> getOccupiedTablesByArea(String area);
+
     @Query("SELECT COUNT(*) FROM tables")
     int getTotalTablesCount();
 

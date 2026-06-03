@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.qlqa.data.utils.DataSeeder;
 import com.example.qlqa.databinding.ActivityLoginBinding;
 import com.example.qlqa.ui.DashboardActivity;
+import com.example.qlqa.ui.StaffDashboardActivity;
 import com.example.qlqa.utils.SessionManager;
 import com.example.qlqa.viewmodel.LoginViewModel;
 
@@ -33,8 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Check if already logged in
         if (sessionManager.isLoggedIn()) {
-            startActivity(new Intent(this, DashboardActivity.class));
-            finish();
+            navigateToDashboard(sessionManager.getRole());
         }
 
         initViews();
@@ -68,10 +68,9 @@ public class LoginActivity extends AppCompatActivity {
 
         viewModel.getLoginSuccess().observe(this, account -> {
             if (account != null) {
-                sessionManager.createLoginSession(account.getUsername(), account.getRole());
+                sessionManager.createLoginSession(account.getUsername(), account.getRole(), account.getStaffId());
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, DashboardActivity.class));
-                finish();
+                navigateToDashboard(account.getRole());
             }
         });
 
@@ -80,5 +79,16 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void navigateToDashboard(String role) {
+        Intent intent;
+        if ("Admin".equalsIgnoreCase(role)) {
+            intent = new Intent(this, DashboardActivity.class);
+        } else {
+            intent = new Intent(this, StaffDashboardActivity.class);
+        }
+        startActivity(intent);
+        finish();
     }
 }
