@@ -12,6 +12,7 @@ public class Category {
     @NonNull
     private String categoryName;
     private String description;
+    private String imageUrl;
     
     @NonNull
     private String status; // Hoạt động / ẩn
@@ -31,6 +32,9 @@ public class Category {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
     @NonNull
     public String getStatus() { return status; }

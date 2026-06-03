@@ -85,7 +85,21 @@ public class RegisterViewModel extends AndroidViewModel {
             } else {
                 // Perform registration
                 String createdAt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-                Staff staff = new Staff(fullName, email, phone, "Admin", createdAt, "Hoạt động");
+                
+                // Fixed: Pass 11 arguments to Staff constructor
+                Staff staff = new Staff(
+                        email,          // employeeCode (using email as initial code)
+                        fullName,       // fullName
+                        email,          // email
+                        phone,          // phoneNumber
+                        "Admin",        // position
+                        "",             // address
+                        "",             // shifts
+                        null,           // profileImageUrl
+                        "",             // dateOfBirth
+                        createdAt,      // createdAt
+                        "Hoạt động"     // status
+                );
                 
                 // Using email as username for the first Admin
                 Account account = new Account(email, PasswordUtils.hashPassword(password), "Admin", 0, "Hoạt động", createdAt);

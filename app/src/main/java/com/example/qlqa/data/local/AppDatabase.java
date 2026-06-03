@@ -18,7 +18,7 @@ import com.example.qlqa.data.local.entities.*;
     OrderDetail.class,
     OrderHistory.class,
     Notification.class
-}, version = 1, exportSchema = false)
+}, version = 10, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
