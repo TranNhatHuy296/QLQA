@@ -7,6 +7,7 @@ public class SessionManager {
     private static final String PREF_NAME = "QLQA_Session";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_ROLE = "role";
+    private static final String KEY_STAFF_ID = "staff_id";
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
 
     private final SharedPreferences pref;
@@ -17,10 +18,11 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String username, String role) {
+    public void createLoginSession(String username, String role, int staffId) {
         editor.putBoolean(KEY_IS_LOGGED_IN, true);
         editor.putString(KEY_USERNAME, username);
         editor.putString(KEY_ROLE, role);
+        editor.putInt(KEY_STAFF_ID, staffId);
         editor.commit();
     }
 
@@ -34,6 +36,10 @@ public class SessionManager {
 
     public String getRole() {
         return pref.getString(KEY_ROLE, null);
+    }
+
+    public int getStaffId() {
+        return pref.getInt(KEY_STAFF_ID, -1);
     }
 
     public void logout() {
